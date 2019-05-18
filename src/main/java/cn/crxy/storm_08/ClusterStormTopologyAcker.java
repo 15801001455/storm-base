@@ -93,7 +93,7 @@ public class ClusterStormTopologyAcker {
 				this.collector.fail(input);
 			}
 			/*try{
-				//TODO---
+				//实际业务应该有try catch
 				this.collector.ack(input);
 			}catch(Exception e){
 				this.collector.fail(input);

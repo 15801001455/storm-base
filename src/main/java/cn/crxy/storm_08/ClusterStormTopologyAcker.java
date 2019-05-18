@@ -23,6 +23,9 @@ import backtype.storm.tuple.Values;
  *
  */
 public class ClusterStormTopologyAcker {
+
+
+
 	public static class DataSourceSpout extends BaseRichSpout{
 		private Map conf;
 		private TopologyContext context;
@@ -105,14 +108,10 @@ public class ClusterStormTopologyAcker {
 		}
 	}
 	
-	
-	
-	
 	public static void main(String[] args) {
 		TopologyBuilder topologyBuilder = new TopologyBuilder();
 		topologyBuilder.setSpout("spout_id", new DataSourceSpout());
 		topologyBuilder.setBolt("bolt_id", new Sumbolt(),2).allGrouping("spout_id");
-		
 		String simpleName = ClusterStormTopologyAcker.class.getSimpleName();
 		try {
 			StormSubmitter.submitTopology(simpleName, new Config(), topologyBuilder.createTopology());

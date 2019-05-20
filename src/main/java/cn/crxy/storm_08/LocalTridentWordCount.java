@@ -23,6 +23,9 @@ import backtype.storm.tuple.Fields;
 import backtype.storm.tuple.Values;
 import backtype.storm.utils.Utils;
 
+/**
+ * 本地调试的时候会出现调用次数多于正常行数，与实际行数不符合，打成jar包后测试没有问题，不是代码问题，是调试本身的bug
+ */
 public class LocalTridentWordCount {
 	
 	public static class DataSpout implements IBatchSpout{
